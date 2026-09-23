@@ -115,7 +115,7 @@ section{position:relative; z-index:1; padding:88px 0;}
 @media(max-width:760px){.card,.card.big,.card.wide,.card.narrow{grid-column:span 6;}}
 .card:hover{transform:translateY(-6px) rotateX(var(--rx,0)) rotateY(var(--ry,0)); border-color:var(--accent); box-shadow:0 16px 40px rgba(0,0,0,.45);}
 .card .thumb{aspect-ratio:16/9; overflow:hidden; background:#1c1c25;}
-.card .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+.card .thumb img, .card .thumb video{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
 .card:hover .thumb img{transform:scale(1.06);}
 .card .body{padding:22px 24px 26px; display:flex; flex-direction:column; gap:10px; flex:1;}
 .card h3{font-size:1.2rem; font-weight:600;}
@@ -255,6 +255,15 @@ footer .bottom{text-align:center; color:var(--muted); font-size:.86rem;}
           <p>Boutique en ligne de produits de beauté et dermatologie.</p>
           <div class="tags"><span class="tag">HTML/CSS</span></div>
           <div class="card-links"><a class="link-btn" href="https://d4rk-boulka1.github.io/LuxeThierno/" target="_blank" rel="noopener">Voir le projet</a></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="thumb"><video src="mbot.mp4" muted loop autoplay playsinline controls></video></div>
+        <div class="body">
+          <h3>Robot Mbot</h3>
+          <p>Création et montage d'un robot Mbot pendant ma formation à l'Orange Digital Center.</p>
+          <div class="tags"><span class="tag">Robotique</span></div>
         </div>
       </div>
 
