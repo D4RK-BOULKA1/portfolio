@@ -126,11 +126,17 @@ section{position:relative; z-index:1; padding:88px 0;}
 .link-btn{font-size:.88rem; font-weight:600; color:var(--accent); display:inline-flex; align-items:center; gap:6px;}
 .link-btn:hover{color:var(--accent2);}
 
-/* --- formation --- */
-.formation{display:flex; gap:24px; align-items:center; background:var(--card); border:1px solid var(--border); border-radius:20px; padding:26px; flex-wrap:wrap;}
+/* --- formations --- */
+.formations{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+@media(max-width:760px){.formations{grid-template-columns:1fr;}}
+.formation{display:flex; gap:24px; align-items:center; background:var(--card); border:1px solid var(--border); border-radius:20px; padding:26px; flex-wrap:wrap; transition:border-color .35s ease, transform .25s ease;}
+.formation:hover{border-color:var(--accent); transform:translateY(-4px);}
+.formation.full{grid-column:1/-1;}
 .formation img{width:96px; height:96px; border-radius:16px; object-fit:cover;}
+.formation .txt{flex:1; min-width:200px;}
 .formation .txt h3{font-size:1.1rem; font-weight:600; margin-bottom:6px;}
 .formation .txt p{color:var(--muted); font-size:.94rem;}
+.formation .tags{margin-top:12px;}
 
 /* --- support banner --- */
 .support{border-radius:24px; background:rgba(224,165,48,.06); border:1px solid var(--border); padding:50px 40px; text-align:center;}
@@ -141,10 +147,10 @@ section{position:relative; z-index:1; padding:88px 0;}
 footer{border-top:1px solid var(--border); padding:56px 0 40px; position:relative; z-index:1;}
 .socials{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-bottom:32px;}
 .social-btn{width:46px; height:46px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; transition:transform .25s ease, border-color .25s ease, color .25s ease; color:var(--muted); position:relative;}
-.social-btn:hover{transform:translateY(-4px) scale(1.06); border-color:var(--gold); color:var(--gold);}
+.social-btn:hover{transform:translateY(-4px) scale(1.06); border-color:var(--accent); color:var(--accent);}
 .social-btn svg{width:19px; height:19px;}
 footer .bottom{text-align:center; color:var(--muted); font-size:.86rem;}
-.toast{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--card); border:1px solid var(--gold); color:var(--ink); padding:10px 20px; border-radius:100px; font-size:.85rem; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; z-index:100;}
+.toast{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--card); border:1px solid var(--accent); color:var(--ink); padding:10px 20px; border-radius:100px; font-size:.85rem; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; z-index:100;}
 .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -295,14 +301,72 @@ footer .bottom{text-align:center; color:var(--muted); font-size:.86rem;}
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Parcours</h2>
-      <p>Formation suivie en parallèle de mes projets.</p>
+      <p>Les formations que j'ai suivies en parallèle de mes projets.</p>
     </div>
-    <div class="formation reveal">
-      <img src="odc.png" alt="Orange Digital Center">
-      <div class="txt">
-        <h3>Orange Digital Center — Robotique & IA</h3>
-        <p>Formation d'un mois en robotique et agents d'intelligence artificielle.</p>
+    <div class="formations">
+
+      <div class="formation full reveal">
+        <img src="odc.png" alt="Orange Digital Center">
+        <div class="txt">
+          <h3>Orange Digital Center — Robotique & IA</h3>
+          <p>Formation d'un mois en robotique et agents d'intelligence artificielle.</p>
+        </div>
       </div>
+
+      <div class="formation reveal">
+        <img src="htmlcss.png" alt="Formation HTML et CSS">
+        <div class="txt">
+          <h3>Formation HTML & CSS</h3>
+          <p>Apprentissage de la création de pages web et de leur mise en forme, suivi sur YouTube.</p>
+          <div class="tags"><span class="tag">YouTube</span></div>
+        </div>
+      </div>
+
+      <div class="formation reveal">
+        <img src="javascript.png" alt="Formation JavaScript">
+        <div class="txt">
+          <h3>Formation JavaScript</h3>
+          <p>Apprentissage de la programmation web et de l'interactivité des sites, suivi sur YouTube.</p>
+          <div class="tags"><span class="tag">YouTube</span></div>
+        </div>
+      </div>
+
+      <div class="formation reveal">
+        <img src="react.png" alt="Formation React">
+        <div class="txt">
+          <h3>Formation React</h3>
+          <p>Apprentissage de la création d'interfaces modernes avec des composants, suivi sur YouTube.</p>
+          <div class="tags"><span class="tag">YouTube</span></div>
+        </div>
+      </div>
+
+      <div class="formation reveal">
+        <img src="phython.png" alt="Formation Python">
+        <div class="txt">
+          <h3>Formation Python</h3>
+          <p>Apprentissage de la programmation en Python, suivi sur YouTube et complété par des exercices pratiques.</p>
+          <div class="tags"><span class="tag">YouTube</span><span class="tag">Exercices</span></div>
+        </div>
+      </div>
+
+      <div class="formation full reveal">
+        <img src="backend.png" alt="Formation Backend">
+        <div class="txt">
+          <h3>Formation Backend</h3>
+          <p>Les bases et les notions essentielles pour construire la partie serveur d'une application.</p>
+          <div class="tags">
+            <span class="tag">Serveurs</span>
+            <span class="tag">API REST</span>
+            <span class="tag">Bases de données</span>
+            <span class="tag">Authentification</span>
+            <span class="tag">Sécurité</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Déploiement</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
