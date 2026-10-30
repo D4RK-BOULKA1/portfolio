@@ -13,6 +13,7 @@
 [data-theme=light]{--bg:#F8FAFC;--bg2:#EEF2F7;--card:#fff;--ink:#0B1120;--muted:#475569;--line:rgba(11,17,32,.12);--a:#2563EB;--b:#2563EB;--c:#2563EB;--dot:37,99,235;color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
+html,body{max-width:100%}
 body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 'DM Sans',sans-serif;overflow-x:hidden;transition:background .5s,color .5s}
 h1,h2,h3,.logo{font-family:'Syne',sans-serif}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
@@ -26,8 +27,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 #pre .n{font:800 clamp(5rem,22vw,13rem)/1 'Syne';background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
 #pre small{position:absolute;bottom:9vh;color:var(--muted);letter-spacing:.2em}
 #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:9998}
-#cv{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.orb{position:fixed;border-radius:50%;filter:blur(120px);opacity:.25;z-index:0;pointer-events:none}
+#cv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.bgf{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.25;z-index:0;pointer-events:none}
 .o1{width:520px;height:520px;background:var(--a);top:-180px;right:-120px;animation:dr 20s ease-in-out infinite}
 .o2{width:440px;height:440px;background:#1d4ed8;bottom:-200px;left:-140px;animation:dr 26s ease-in-out infinite reverse}
 @keyframes dr{50%{transform:translate(-90px,110px) scale(1.15)}}
@@ -159,13 +161,30 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:40px
 .on .ul path{stroke-dashoffset:0}
 .card.on .th img{animation:wipe 1.2s cubic-bezier(.77,0,.18,1) both}
 @keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+/* mobile */
+@media(max-width:860px){.hero{padding:36px 0 48px;min-height:0}.hero .wrap{grid-template-columns:minmax(0,1fr);gap:44px}}
+@media(max-width:760px){.links{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:12px 24px;box-shadow:0 10px 30px rgba(0,0,0,.35);white-space:nowrap}
+.toast{bottom:88px}footer{padding-bottom:104px}}
+@media(max-width:640px){
+.wrap{padding:0 18px}section{padding:64px 0}
+h1{font-size:clamp(2.1rem,10.5vw,3.4rem)}.tag-l{font-size:1rem}
+.ph{max-width:250px}.bdg{width:88px;height:88px;right:-10px;bottom:-10px}
+.bento,.fms{grid-template-columns:minmax(0,1fr)}
+.card,.card.big,.card.wide,.card.nar{grid-column:auto!important}
+.fm{padding:18px;gap:16px}.fm img{width:68px;height:68px}
+.stats{gap:8px}.stats b{font-size:2.3rem}.stats span{font-size:.8rem}
+.big{padding-top:36px}.mq span{font-size:1.15rem}
+.rv{filter:none;transform:translateY(28px)}.rv.on{transform:none}
+.orb{filter:blur(70px)}.o1{width:300px;height:300px}.o2{width:260px;height:260px}
+.btn{padding:11px 18px}.logo{font-size:1.3rem}.sb{width:50px;height:50px}.sup{padding:44px 20px}
+.fl{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rv,.ln span,.tag-l .w,.acts,.ph{opacity:1!important;transform:none!important;filter:none!important}#pre{display:none}}
 </style>
 </head>
 <body>
 <div id="pre"><div class="n" id="num">0</div><small>BOULKA PORTFOLIO</small></div>
 <div id="bar"></div><div class="cur" id="cur"></div>
-<canvas id="cv"></canvas><div class="orb o1"></div><div class="orb o2"></div>
+<div class="bgf"><canvas id="cv"></canvas><div class="orb o1"></div><div class="orb o2"></div></div>
 <nav><div class="wrap">
 <a href="#" class="logo">Boulka</a>
 <div class="links"><a href="#projets">Projets</a><a href="#parcours">Parcours</a><a href="#contact">Me contacter</a></div>
