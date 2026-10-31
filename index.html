@@ -150,9 +150,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:40px
 @keyframes fa{50%{transform:translateY(-34px) scale(1.15)}}@keyframes fb{to{transform:rotate(380deg)}}
 .bdg{position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;z-index:3}
 .bdg text{transform-origin:50px 50px;animation:fb 14s linear infinite}
-.big{position:relative;z-index:1;overflow:hidden;padding:56px 0 8px}
-.big div{font:800 clamp(4rem,11vw,9rem)/1 'Syne';white-space:nowrap;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px var(--muted);will-change:transform}
-.big #b2{color:var(--a);-webkit-text-stroke:0}
+.bigtxt{position:relative;z-index:1;overflow:hidden;padding:56px 0 8px}
+.bigtxt div{font:800 clamp(4rem,11vw,9rem)/1 'Syne';white-space:nowrap;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px var(--muted);will-change:transform}
+.bigtxt #b2{color:var(--a);-webkit-text-stroke:0}
 .stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-block:56px 0;text-align:center}
 .stats b{display:block;font:800 clamp(3rem,9vw,6.5rem)/1 'Syne';color:var(--a);font-variant-numeric:tabular-nums}
 .stats b::after{content:'+'}.stats span{color:var(--muted)}
@@ -173,7 +173,7 @@ h1{font-size:clamp(1.6rem,7.6vw,3rem);letter-spacing:-.04em}.tag-l{font-size:1re
 .card,.card.big,.card.wide,.card.nar{grid-column:auto!important}
 .fm{padding:18px;gap:16px}.fm img{width:68px;height:68px}
 .stats{gap:8px}.stats b{font-size:2.3rem}.stats span{font-size:.8rem}
-.big{padding-top:36px}.mq span{font-size:1.15rem}
+.bigtxt{padding-top:36px}.mq span{font-size:1.15rem}
 .rv{filter:none;transform:translateY(28px)}.rv.on{transform:none}
 .orb{filter:blur(70px)}.o1{width:300px;height:300px}.o2{width:260px;height:260px}
 .btn{padding:11px 18px}.logo{font-size:1.3rem}.sb{width:50px;height:50px}.sup{padding:44px 20px}
@@ -211,7 +211,7 @@ h1{font-size:clamp(1.6rem,7.6vw,3rem);letter-spacing:-.04em}.tag-l{font-size:1re
 <div><span>Full-Stack</span><span>Mobile</span><span>Web</span><span>Robotique</span><span>IA</span><span>Full-Stack</span><span>Mobile</span><span>Web</span><span>Robotique</span><span>IA</span><span>Full-Stack</span><span>Mobile</span><span>Web</span><span>Robotique</span><span>IA</span><span>Full-Stack</span><span>Mobile</span><span>Web</span><span>Robotique</span><span>IA</span></div>
 </div>
 
-<div class="big" aria-hidden="true"><div id="b1">DÉVELOPPEUR FULL-STACK — </div><div id="b2">BOULKA — </div></div>
+<div class="bigtxt" aria-hidden="true"><div id="b1">DÉVELOPPEUR FULL-STACK — </div><div id="b2">BOULKA — </div></div>
 <div class="wrap stats rv"><div><b data-n="10">0</b><span>Projets</span></div><div><b data-n="6">0</b><span>Formations</span></div><div><b data-n="9">0</b><span>Technologies</span></div></div>
 <section id="projets"><div class="wrap">
 <div class="sh rv"><h2>Projets</h2><p>Une sélection de ce que j'ai construit, du concept au déploiement.</p></div>
@@ -308,7 +308,7 @@ addEventListener('resize',rs);addEventListener('mousemove',e=>{m.x=e.clientX;m.y
 function scr(el){const f=el.textContent,ch='ABCDEFGHJKLMNPRSTUVXYZ<>/#%';let i=0;const t=setInterval(()=>{el.textContent=f.split('').map((c,k)=>k<i||c===' '?c:ch[Math.random()*ch.length|0]).join('');if(i++>f.length){clearInterval(t);el.textContent=f}},40)}
 function cnt(el){const n=+el.dataset.n,t=performance.now();(function s(x){const p=Math.min((x-t)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(s)})(t)}
 $$('.sh h2').forEach(h=>h.insertAdjacentHTML('afterend','<svg class="ul" viewBox="0 0 200 12" aria-hidden="true"><path pathLength="1" d="M2 8C40 2 70 12 100 6S170 2 198 7"/></svg>'));
-const b1=$('#b1'),b2=$('#b2'),bg=$('.big');b1.textContent=b1.textContent.repeat(4);b2.textContent=b2.textContent.repeat(8);
+const b1=$('#b1'),b2=$('#b2'),bg=$('.bigtxt');b1.textContent=b1.textContent.repeat(4);b2.textContent=b2.textContent.repeat(8);
 function bigMove(){const p=bg.getBoundingClientRect().top-innerHeight/2;b1.style.transform=`translateX(${p*.6-300}px)`;b2.style.transform=`translateX(${-p*.6-2200}px)`}
 addEventListener('scroll',bigMove,{passive:true});bigMove();
 function copyDiscord(){const t=$('#toast');navigator.clipboard?.writeText('boulka2').catch(()=>{});t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
